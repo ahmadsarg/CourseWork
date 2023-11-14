@@ -50,7 +50,7 @@ public class public Dec2Hex {
         return hexadecimal;
     }
 
-    private static void performAdditionalOperation(int value) {
+    public static void performAdditionalOperation(int value) {
         // This method will be invoked conditionally
         logger.info(String.format("Performing additional operation for value %d", value));
         // Add your additional operation logic here
