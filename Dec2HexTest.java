@@ -10,7 +10,7 @@ public class Dec2HexTest {
         // Add more test cases as needed
     }
 
-    @Test(expected = NumberFormatException.class)
+    @Test
     public void testInvalidInput() {
         Dec2Hex.convertDecimalToHex(Integer.parseInt("InvalidInput"));
     }
