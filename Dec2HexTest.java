@@ -4,19 +4,20 @@ import static org.junit.Assert.*;
 public class Dec2HexTest {
 
     @Test
-    public static void testValidInput() {
+    public void testValidInput() {
         assertEquals("Conversion of 255 to hex", "FF", Dec2Hex.convertDecimalToHex(255));
         assertEquals("Conversion of 16 to hex", "10", Dec2Hex.convertDecimalToHex(16));
         // Add more test cases as needed
     }
 
-    @Test
-    public static void testInvalidInput() {
+    @Test(expected = NumberFormatException.class)
+    public void testInvalidInput() {
+        // Provide an invalid input that will result in a NumberFormatException
         Dec2Hex.convertDecimalToHex(Integer.parseInt("InvalidInput"));
     }
 
     @Test
-    public static void testAdditionalOperation() {
+    public void testAdditionalOperation() {
         // Assuming your additional operation is based on some condition
         // You may need to modify this test based on your specific additional operation logic
         assertEquals("Additional operation for value 150", "ExpectedResult", Dec2Hex.performAdditionalOperation(150));
