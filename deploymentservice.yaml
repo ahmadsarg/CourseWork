@@ -1,39 +1,32 @@
-   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
-  labels:
-    app: nodeapp
+  name: my-nodejs-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: my-nodejs-app
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: my-nodejs-app
     spec:
       containers:
-      - name: nodeserver
-        image: ahmedfarouk330/devopsintegration:latest
+      - name: nodejs-app
+        image: ahmedfarouk330/devopsintegration:latest  # Replace with the actual image name and tag
         ports:
-        - containerPort: 3000
-        
-        
+        - containerPort: 8080
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-service
+  name: my-nodejs-service
 spec:
   selector:
-    app: nodeapp 
-  type: LoadBalancer
+    app: my-nodejs-app
   ports:
-  - protocol: TCP
-    port: 5000
-    targetPort: 3000
-    nodePort: 31110
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer  # Change to 'ClusterIP' if you don't need external access
