@@ -1,4 +1,4 @@
-  
+   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image:  ahmedfarouk330/devopsintegration
+        image: thetips4you/nodeapp:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
         
         
 ---
@@ -34,6 +34,6 @@ spec:
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: 8080
-    type: NodePort
+    port: 5000
+    targetPort: 3000
+    nodePort: 31110
