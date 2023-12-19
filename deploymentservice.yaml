@@ -19,7 +19,7 @@ spec:
       - name: nodeserver
         image:  ahmedfarouk330/devopsintegration
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         
         
 ---
@@ -34,6 +34,6 @@ spec:
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 5000
-    targetPort: 3000
-    nodePort: 31110
+    port: 8080
+    targetPort: 8080
+    type: NodePort
